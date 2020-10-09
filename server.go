@@ -4,6 +4,7 @@ import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"net/http"
+	"mvc-go-mysql-echo/controllers"
 )
 
 func main() {
@@ -18,5 +19,6 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.JSON(http.StatusCreated, "MVC GO-MYSQL-ECHO")
 	})
+	e.GET("/employees", controllers.GetEmployees)
 	e.Logger.Fatal(e.Start(":1234"))
 }
